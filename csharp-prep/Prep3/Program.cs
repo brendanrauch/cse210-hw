@@ -6,16 +6,19 @@ class Program
     {
         Console.WriteLine("Hello Prep3 World!");
 
-        Console.Write("What is the magic number? ");
-        string magicNumberInput = Console.ReadLine();
-        int magicNumber = int.Parse(magicNumberInput);
-        
+        Random random = new Random();
+         int magicNumber = random.Next(1, 101);
+
+        // Console.Write("What is the magic number? ");
+        // string magicNumberInput = Console.ReadLine();
+        // int magicNumber = int.Parse(magicNumberInput);
+        Console.WriteLine("Guess what the magic number is");
         int guess;
 
         do 
         {
 
-            Console.Write("What is your guess? ");
+            Console.WriteLine("What is your guess? ");
             string guessInput = Console.ReadLine();
             guess = int.Parse(guessInput);
 
