@@ -1,10 +1,9 @@
 using System;
 
-
 public class Word
 {
-    public string _text;
-    public bool _isHidden;
+    private string _text;
+    private bool _isHidden; 
 
     public Word(string text)
     {
@@ -20,6 +19,11 @@ public class Word
     public void Reveal()
     {
         _isHidden = false;
+    }
+
+     public bool IsHidden
+    {
+        get { return _isHidden; }
     }
 
     public override string ToString()
