@@ -1,33 +1,36 @@
-using System;
 
+using System;
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World!");
-
-        int response = 0;
-        while(response < 1 || response > 4)
+        Dictionary<string, Activity> activities = new Dictionary<string, Activity>
         {
-            Console.Clear();
-            Console.WriteLine("Menu Options");
+            { "1", new BreathingActivity() },
+            { "2", new ReflectingActivity() },
+            { "3", new ListingActivity() }
+        };
+
+        while (true)
+        {
+            Console.WriteLine("Menu Options:");
             Console.WriteLine("1. Start Breathing Activity");
             Console.WriteLine("2. Start Reflecting Activity");
             Console.WriteLine("3. Start Listing Activity");
             Console.WriteLine("4. Quit");
+            Console.Write("Select a choice from the menu: ");
 
-            try
+            string choice = Console.ReadLine();
+            if (choice == "4") break;
+
+            if (activities.ContainsKey(choice))
             {
-                response = int.Parse(Console.ReadLine());
-            
+                activities[choice].Start();
             }
-            catch
+            else
             {
-                Console.WriteLine("Input an integer between 1 and 4");
+                Console.WriteLine("Invalid choice. Please try again.");
             }
         }
-
-
-
     }
 }
