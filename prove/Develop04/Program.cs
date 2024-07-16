@@ -1,5 +1,6 @@
-
 using System;
+using System.Collections.Generic;
+
 class Program
 {
     static void Main(string[] args)
@@ -12,7 +13,8 @@ class Program
         };
 
         while (true)
-        {
+        {   
+            Console.Clear();
             Console.WriteLine("Menu Options:");
             Console.WriteLine("1. Start Breathing Activity");
             Console.WriteLine("2. Start Reflecting Activity");
@@ -25,6 +27,7 @@ class Program
 
             if (activities.ContainsKey(choice))
             {
+                Console.Clear();
                 activities[choice].Start();
             }
             else

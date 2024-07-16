@@ -1,3 +1,4 @@
+using System;
 
 class BreathingActivity : Activity
 {
@@ -8,12 +9,17 @@ class BreathingActivity : Activity
     protected override void PerformActivity()
     {
         DateTime startTime = DateTime.Now;
-        while ((DateTime.Now - startTime).TotalSeconds < Duration)
+        while ((DateTime.Now - startTime).TotalSeconds < _duration)
         {
-            Console.WriteLine("Breathe in...");
-            ShowSpinner(2);
-            Console.WriteLine("Now breathe out...");
-            ShowSpinner(2);
+            Console.Write("Breathe in...");
+            ShowCountdownWithMessage(5, "Breathe in...");
+            Console.WriteLine("");
+            Console.Write("Now breathe out...");
+            ShowCountdownWithMessage(4, "Now breathe out...");
+            Console.WriteLine("");
+            Console.WriteLine("");
         }
     }
+
+    
 }

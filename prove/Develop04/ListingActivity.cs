@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 class ListingActivity : Activity
 {
     private static readonly string[] Prompts = {
@@ -16,19 +19,23 @@ class ListingActivity : Activity
     {
         Random random = new Random();
         string prompt = Prompts[random.Next(Prompts.Length)];
-        Console.WriteLine(prompt);
-        ShowSpinner(3);
-        Console.WriteLine("You may begin in:");
-        ShowSpinner(3);
+        Console.WriteLine("List as many responses you can to the following prompt:");
+        Console.WriteLine($"---{prompt}---");
+        Console.WriteLine("");
+        Console.Write("You may begin in:");
+        ShowCountdownWithMessage(6, "You may begin in ");
+        Console.WriteLine("");
         Console.WriteLine("Start listing items:");
 
         DateTime startTime = DateTime.Now;
         List<string> items = new List<string>();
-        while ((DateTime.Now - startTime).TotalSeconds < Duration)
+        while ((DateTime.Now - startTime).TotalSeconds < _duration)
         {
+            Console.Write("> ");
             string item = Console.ReadLine();
             items.Add(item);
         }
         Console.WriteLine($"You listed {items.Count} items!");
+        Console.WriteLine("");
     }
 }
